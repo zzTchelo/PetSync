@@ -45,5 +45,8 @@ main {
 .schedule-information .client-name{
   display: block;
   width: 100%;
+}
+
+.schedule-information .client-name span{
   font-weight: 600;
 }

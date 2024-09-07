@@ -2,9 +2,9 @@
   <main>
     <div *ngFor="let schedule of schedules" class="schedule-card">
         <div class="schedule-information">
-          <label class="client-name">{{ schedule.clientName }}</label>
-          <label class="pet-name">{{ schedule.petName }}</label>
-          <label class="date-description">{{ schedule.dateScheduled }}</label>
+          <label class="client-name">Cliente: <span>{{ schedule.clientName }}</span></label>
+          <label class="pet-name">Pet: {{ schedule.petName }}</label>
+          <label class="date-description">Data: {{ schedule.dateScheduled | date : 'dd/MM/yyyy'}}</label>
         </div>
         <img src="../../../assets/icons8-editar-64.png" alt="Editar">
     </div>

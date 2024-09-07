@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultHomePageComponent } from "../default-home-page/default-home-page.component";
 import { ISchedule } from './schedule';
 import { ScheduleService } from './schedule.service';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor, registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
+registerLocaleData(localePT);
 
 @Component({
   selector: 'app-schedule-page',
   standalone: true,
-  imports: [DefaultHomePageComponent, NgFor],
+  imports: [DefaultHomePageComponent, NgFor, CommonModule],
   templateUrl: './schedule-page.component.html',
   styleUrl: './schedule-page.component.css'
 })
