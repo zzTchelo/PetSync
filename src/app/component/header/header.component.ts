@@ -1,5 +1,5 @@
 import { CommonModule,registerLocaleData  } from '@angular/common';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import localePT from '@angular/common/locales/pt';
 
 registerLocaleData(localePT);

@@ -1,0 +1,12 @@
+<app-default-home-page>
+  <main>
+    <div *ngFor="let schedule of schedules" class="schedule-card">
+        <div class="schedule-information">
+          <label class="client-name">{{ schedule.clientName }}</label>
+          <label class="pet-name">{{ schedule.petName }}</label>
+          <label class="date-description">{{ schedule.dateScheduled }}</label>
+        </div>
+        <img src="../../../assets/icons8-editar-64.png" alt="Editar">
+    </div>
+  </main>
+</app-default-home-page>
