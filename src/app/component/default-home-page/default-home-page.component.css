@@ -1,6 +1,5 @@
 nav {
-  width: 200px;
-  font-family: Arial, sans-serif;
+  width: 250px;
   height: 80vh;
   margin-top: 40px;
 }
@@ -13,7 +12,7 @@ nav ul {
 
 nav li {
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
   text-align: left;
   border: 1px solid #ccc;
   background-color: #E5E5E5;
