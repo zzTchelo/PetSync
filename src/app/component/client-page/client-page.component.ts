@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 export class ClientPageComponent implements OnInit{
 
-  public allClients : IClient [] | undefined = [];
+  public allClients : IClient [] = [];
   private setClients : IClient [] = [];
   filteredClients : string = '';
 
