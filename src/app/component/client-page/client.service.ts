@@ -15,8 +15,8 @@ export class ClientService {
     return this.client;
   }
 
-  getOne(clientId : string){
-    return this.client.find( client => client.id == clientId )
+  getOne(clientName : string){
+    return this.client.find( client => client.clientName == clientName )
   }
 
 }
