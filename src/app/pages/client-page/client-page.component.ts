@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultHomePageComponent } from '../default-home-page/default-home-page.component';
+import { DefaultHomePageComponent } from '../../components/default-home-page/default-home-page.component';
 import { CommonModule, NgFor } from '@angular/common';
 import { IClient } from './client';
-import { ClientService } from './client.service';
+import { ClientService } from '../../services/client.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({

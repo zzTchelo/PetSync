@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { clients, IClient } from './client';
+import { clients, IClient } from '../pages/client-page/client';
 
 @Injectable({
   providedIn: 'root'

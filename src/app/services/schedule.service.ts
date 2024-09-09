@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISchedule ,schedule } from './schedule';
+import { ISchedule ,schedule } from '../pages/schedule-page/schedule';
 
 @Injectable({
   providedIn: 'root'

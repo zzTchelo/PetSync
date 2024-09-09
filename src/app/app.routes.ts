@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './component/login/login.component';
-import { SchedulePageComponent } from './component/schedule-page/schedule-page.component';
-import { ClientPageComponent } from './component/client-page/client-page.component';
-import { PetPageComponent } from './component/pet-page/pet-page.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SchedulePageComponent } from './pages/schedule-page/schedule-page.component';
+import { ClientPageComponent } from './pages/client-page/client-page.component';
+import { PetPageComponent } from './pages/pet-page/pet-page.component';
+
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},

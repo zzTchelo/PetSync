@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultHomePageComponent } from '../default-home-page/default-home-page.component';
-import { PetService } from './pet.service';
+import { DefaultHomePageComponent } from '../../components/default-home-page/default-home-page.component';
+import { PetService } from '../../services/pet.service';
 import { IPet } from './pet';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
@@ -32,5 +32,4 @@ export class PetPageComponent implements OnInit{
       return pet.name.toLowerCase().includes(this.filteredPets);
     })
   }
-
 }
