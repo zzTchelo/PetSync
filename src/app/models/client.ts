@@ -6,6 +6,11 @@ export interface IClient {
   clientDateOfBirth: string;
   petName: string;
   dateScheduled: string;
+
+  //clientCPF: string;
+  //clientAddress: string;
+  //clientImage: string;
+  //clientEmail: string;
 }
 
 export const clients: IClient[] = [
