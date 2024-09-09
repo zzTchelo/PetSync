@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 // Define a interface Pet com UUID
-interface Pet {
+export interface IPet {
   id: string;
   name: string;
   breed: string;
@@ -10,7 +10,7 @@ interface Pet {
 }
 
 // Cria a lista de pets com UUID e uma única data de nascimento
-const pets: Pet[] = [
+export const pets: IPet[] = [
   { id: uuidv4(), name: "Rex", breed: "Labrador", animalType: "Dog", birth: new Date("2021-05-15") },
   { id: uuidv4(), name: "Mia", breed: "Siamese", animalType: "Cat", birth: new Date("2020-11-20") },
   { id: uuidv4(), name: "Charlie", breed: "Beagle", animalType: "Dog", birth: new Date("2019-07-10") },

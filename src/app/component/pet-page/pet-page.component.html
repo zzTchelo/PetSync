@@ -1,3 +1,20 @@
 <app-default-home-page>
-  Working in progress...
+  <main>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." [(ngModel)]="filteredPets" (keyup)="onTextChange()">
+      <img src="../../../assets/icons8-pesquisar-64.png" alt="search" class="search-icon">
+    </div>
+    <div class="pet-board">
+      <div *ngFor="let pet of allPets" class="pet-card">
+          <div class="pet-information">
+            <img src="../../../assets/icons8-pegada-de-cachorro-100.png" alt="Profile-pic">
+            <label class="pet-name"><span>{{ pet.name }}</span></label>
+            <label>
+              <span class="pet-type">{{ pet.breed }}</span>
+              <span class="pet-breed">{{ pet.animalType }}</span>
+            </label>
+          </div>
+      </div>
+    </div>
+  </main>
 </app-default-home-page>
