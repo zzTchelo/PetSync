@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DefaultHomePageComponent } from '../../components/default-home-page/default-home-page.component';
 import { CommonModule, NgFor } from '@angular/common';
-import { IClient } from './client';
+import { IClient } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 import { FormsModule } from '@angular/forms';
 
