@@ -7,7 +7,7 @@
     <div class="client-board">
       <div *ngFor="let client of allClients" class="client-card">
           <div class="client-information">
-            <img src="../../../assets/icons8-usuário-de-gênero-neutro-100.png" alt="Profile-pic">
+            <img [src]="client.clientImage" alt="Profile-pic">
             <label class="client-name"><span>{{ client.clientName }}</span></label>
             <label>{{ client.pet }}</label>
           </div>

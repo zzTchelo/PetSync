@@ -1,28 +1,54 @@
 <app-default-home-page>
   <main>
-    <form>
-      <div>
-        <label for="clientName">Nome:</label>
-        <input type="text" name="clientName">
-      </div>
+    <form action="" [formGroup]="formClient">
+      <div class="main-form">
+        <div class="left-side">
+          <div class="image-container">
+            <img *ngIf="imageSrc" [src]="imageSrc" alt="Image Preview" class="image-preview" />
+            <div class="upload-icon-wrapper">
+              <input type="file" (change)="onFileSelected($event)" accept="image/*"/>
+              <img src="../../../assets/icons8-editar-96.png" class="upload-icon" alt="Edit Image">
+            </div>
+          </div>
 
-      <div>
-        <label for="">Email:</label>
-        <input type="text" name="">
-      </div>
+        </div>
+        <div class="right-side">
+          <div>
+            <label for="clientName">Nome:</label>
+            <input type="text" formControlName="clientName">
+          </div>
+          <div class="mensagem-erro" *ngIf="formClient.get('clientName')?.errors && formClient.get('clientName')?.touched">
+            *Campo obrigatório!!!
+          </div>
 
-      <div>
-        <label for="">CPF:</label>
-        <input type="text" name="">
-      </div>
+          <div>
+            <label for="">Email:</label>
+            <input type="text" formControlName="clientEmail">
+          </div>
+          <div class="mensagem-erro" *ngIf="formClient.get('clientEmail')?.errors && formClient.get('clientEmail')?.touched">
+            *Campo obrigatório!!!
+          </div>
 
-      <div>
-        <label for="">Data de Nascimento</label>
-        <input type="date" name="">
-      </div>
+          <div>
+            <label for="">CPF:</label>
+            <input type="text" formControlName="clientCPF" mask="000.000.000-00">
+          </div>
+          <div class="mensagem-erro" *ngIf="formClient.get('clientCPF')?.errors && formClient.get('clientCPF')?.touched">
+            *Campo obrigatório!!!
+          </div>
 
-      <div>
-        <button>Cadastrar</button>
+          <div>
+            <label for="">Data de Nascimento</label>
+            <input type="date" formControlName="clientDateBirth">
+          </div>
+          <div class="mensagem-erro" *ngIf="formClient.get('clientDateBirth')?.errors && formClient.get('clientDateBirth')?.touched">
+            *Campo obrigatório!!!
+          </div>
+
+          <div>
+            <button [disabled]="!formClient.valid" [ngClass]="enableButton()" (click)="sendClient()">Cadastrar</button>
+          </div>
+        </div>
       </div>
     </form>
   </main>

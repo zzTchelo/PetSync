@@ -6,13 +6,14 @@ export interface IClient {
   clientDateOfBirth: string;
   pet: string;
   dateScheduled: string;
+  clientImage: string;
 
   //clientCPF: string;
   //clientAddress: string;
-  //clientImage: string;
   //clientEmail: string;
 }
 
+/*
 export const clients: IClient[] = [
   { id: uuidv4(), clientName: "João Silva", clientDateOfBirth: "1980-05-14", pet: "Rex", dateScheduled: "2024-11-25" },
   { id: uuidv4(), clientName: "Maria Fernandes", clientDateOfBirth: "1992-09-23", pet: "Luna", dateScheduled: "2024-12-10" },
@@ -33,3 +34,4 @@ export const clients: IClient[] = [
   { id: uuidv4(), clientName: "André Silva", clientDateOfBirth: "1980-04-15", pet: "Thor", dateScheduled: "2024-12-09" },
   { id: uuidv4(), clientName: "Letícia Costa", clientDateOfBirth: "1989-07-25", pet: "Mia", dateScheduled: "2024-11-27" }
 ];
+*/

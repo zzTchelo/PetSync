@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+#Fake backend API
+/backend/node_modules
+
 # Node
 /node_modules
 npm-debug.log

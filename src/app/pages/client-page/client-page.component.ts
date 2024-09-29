@@ -4,11 +4,13 @@ import { CommonModule, NgFor } from '@angular/common';
 import { IClient } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-client-page',
   standalone: true,
-  imports: [DefaultHomePageComponent, NgFor, CommonModule, FormsModule],
+  imports: [DefaultHomePageComponent, NgFor, CommonModule, FormsModule, HttpClientModule],
+  providers: [ClientService],
   templateUrl: './client-page.component.html',
   styleUrl: './client-page.component.css'
 })
@@ -20,12 +22,14 @@ export class ClientPageComponent implements OnInit{
   filteredClients : string = '';
 
   constructor(
-    private clientService : ClientService
+    private clientService : ClientService,
   ){}
 
   ngOnInit(): void {
-    this.allClients = this.clientService.getAll();
-    this.setClients = this.clientService.getAll();
+    this.clientService.getAll().subscribe((client) => {
+      this.allClients = client;
+      this.setClients = client;
+    });
   }
 
   onTextChange(){

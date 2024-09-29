@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { clients, IClient } from '../models/client';
+import { IClient } from '../models/client';
+import { HttpClient } from '@angular/common/http';
+import { Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +9,21 @@ import { clients, IClient } from '../models/client';
 
 export class ClientService {
 
-  private client : IClient [] = clients
+  private readonly API : string = 'http://localhost:3000/clients';
+  constructor(
+    private http : HttpClient
+  ) { }
 
-  constructor() { }
-
-  getAll(){
-    return this.client;
+  post(client : IClient) : Observable<IClient>{
+    return this.http.post<IClient>(this.API, client)
   }
 
-  getOne(clientName : string){
-    return this.client.find( client => client.clientName == clientName )
+  getAll() : Observable<IClient[]>{
+    return this.http.get<IClient[]>(this.API).pipe(take(1));
+  }
+
+  getOne(clientId : string) : Observable<IClient>{
+    return this.http.get<IClient>(`${this.API}/${clientId}`).pipe(take(1))
   }
 
 }
