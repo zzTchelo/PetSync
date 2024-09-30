@@ -23,8 +23,7 @@ export class PetPageComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.allPets = this.petService.getAll();
-    this.setPets = this.petService.getAll();
+
   }
 
   onTextChange(){

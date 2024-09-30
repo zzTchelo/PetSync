@@ -5,9 +5,11 @@ export interface IPet {
   name: string;
   breed: string;
   animalType: string;
-  birth: Date;
+  petDateBirth: Date;
 }
 
+
+/*
 export const pets: IPet[] = [
   { id: uuidv4(), name: "Rex", breed: "Labrador", animalType: "Dog", birth: new Date("2021-05-15") },
   { id: uuidv4(), name: "Mia", breed: "Siamese", animalType: "Cat", birth: new Date("2020-11-20") },
@@ -28,3 +30,4 @@ export const pets: IPet[] = [
   { id: uuidv4(), name: "Whiskers", breed: "Abyssinian", animalType: "Cat", birth: new Date("2018-12-25") },
   { id: uuidv4(), name: "Rufus", breed: "Boxer", animalType: "Dog", birth: new Date("2016-09-30") }
 ];
+*/

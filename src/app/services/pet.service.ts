@@ -1,21 +1,36 @@
 import { Injectable } from '@angular/core';
-import { IPet, pets } from '../models/pet';
+import { IPet } from '../models/pet';
+import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
 
-  private pets : IPet [] = pets;
+  private readonly API = '';
 
-  constructor() {}
+  constructor(
+    private http : HttpClientModule
+  ) {}
 
   getAll(){
-    return this.pets;
+    return ;
   }
 
-  getOne(petId : string){
-    return this.pets.find(pet => pet.id == petId);
+  getByID(petId : string){
+    return ;
+  }
+
+  post(pet : IPet){
+    return ;
+  }
+
+  put(pet : IPet){
+    return ;
+  }
+
+  delete(id : string){
+    return ;
   }
 
 }

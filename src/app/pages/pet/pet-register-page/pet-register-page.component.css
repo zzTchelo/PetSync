@@ -1,0 +1,133 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+form {
+  background-color: #fff;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.main-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.left-side {
+  width: 50vh;
+}
+
+.image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.image-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.upload-icon-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #4CAF50;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.upload-icon-wrapper input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-icon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.upload-icon-wrapper:hover{
+  cursor: pointer;
+}
+
+.right-side {
+  width: 50vh;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.enabled-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.enabled-button:hover {
+  background-color: #0056b3;
+}
+
+.disabled-button {
+  background-color: #b6b6b6;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.mensagem-erro {
+  font-size: 12px;
+  margin-left: 5px;
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
