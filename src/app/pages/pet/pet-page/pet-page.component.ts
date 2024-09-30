@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultHomePageComponent } from '../../components/default-home-page/default-home-page.component';
-import { PetService } from '../../services/pet.service';
-import { IPet } from '../../models/pet';
+import { DefaultHomePageComponent } from '../../../components/default-home-page/default-home-page.component';
+import { PetService } from '../../../services/pet.service';
+import { IPet } from '../../../models/pet';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 

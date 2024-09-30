@@ -18,6 +18,16 @@ export class ClientService {
     return this.http.post<IClient>(this.API, client)
   }
 
+  put(client : IClient) : Observable<IClient>{
+    const url = `${this.API}/${client.id}`;
+    return this.http.put<IClient>(url, client);
+  }
+
+  delete(clientId : string) : Observable<IClient>{
+    const url = `${this.API}/${clientId}`;
+    return this.http.delete<IClient>(url);
+  }
+
   getAll() : Observable<IClient[]>{
     return this.http.get<IClient[]>(this.API).pipe(take(1));
   }

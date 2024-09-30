@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultHomePageComponent } from "../../components/default-home-page/default-home-page.component";
-import { ISchedule } from '../../models/schedule';
-import { ScheduleService } from '../../services/schedule.service';
+import { DefaultHomePageComponent } from "../../../components/default-home-page/default-home-page.component";
+import { ISchedule } from '../../../models/schedule';
+import { ScheduleService } from '../../../services/schedule.service';
 import { CommonModule, NgFor, registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 registerLocaleData(localePT);

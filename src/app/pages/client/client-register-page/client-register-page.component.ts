@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultHomePageComponent } from "../../components/default-home-page/default-home-page.component";
+import { DefaultHomePageComponent } from "../../../components/default-home-page/default-home-page.component";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../../../services/client.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -88,6 +88,4 @@ export class ClientRegisterPageComponent implements OnInit {
     else
       return 'disabled-button';
   }
-
-
 }

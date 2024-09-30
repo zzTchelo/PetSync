@@ -4,13 +4,11 @@ export interface IClient {
   id: string;
   clientName: string;
   clientDateOfBirth: string;
-  pet: string;
-  dateScheduled: string;
+  //pet: string;
   clientImage: string;
-
-  //clientCPF: string;
+  clientEmail: string;
+  clientCPF: string;
   //clientAddress: string;
-  //clientEmail: string;
 }
 
 /*

@@ -6,10 +6,10 @@
     </div>
     <div class="client-board">
       <div *ngFor="let client of allClients" class="client-card">
-          <div class="client-information">
+          <div class="client-information" routerLink="/clients/{{ client.id }}">
             <img [src]="client.clientImage" alt="Profile-pic">
             <label class="client-name"><span>{{ client.clientName }}</span></label>
-            <label>{{ client.pet }}</label>
+            <!-- <label>{{ client.pet }}</label> -->
           </div>
       </div>
     </div>
