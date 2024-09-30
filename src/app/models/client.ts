@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 export interface IClient {
   id: string;
   clientName: string;
-  clientDateOfBirth: string;
+  clientDateBirth: string;
   //pet: string;
   clientImage: string;
   clientEmail: string;
