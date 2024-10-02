@@ -51,7 +51,10 @@ export class PetRegisterPageComponent implements OnInit{
         petImage : this.imageSrc
       }
 
-
+      this.petService.post(formData).subscribe(() => {
+        console.log("Pet Cadastrado com sucesso!!!");
+        this.route.navigate(["/pets"]);
+      })
     }
 
   }

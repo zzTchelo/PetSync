@@ -1,11 +1,9 @@
-import { v4 as uuidv4 } from 'uuid';
-
 export interface IPet {
   id: string;
-  name: string;
-  breed: string;
+  petName: string;
+  petBreed: string;
   animalType: string;
-  petDateBirth: Date;
+  petDateBirth: string;
   petImage : string;
 }
 
