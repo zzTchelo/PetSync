@@ -41,7 +41,6 @@ export class PetRegisterPageComponent implements OnInit{
         Validators.required
       ])]
     });
-
   }
 
   sendPet(){
