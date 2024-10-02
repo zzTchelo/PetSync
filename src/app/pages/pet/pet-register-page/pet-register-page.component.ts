@@ -47,8 +47,9 @@ export class PetRegisterPageComponent implements OnInit{
   sendPet(){
     if(this.formPet.valid){
       const formData = {
-        ...this.formPet,
-        petImage : this.imageSrc
+        ...this.formPet.value,
+        petImage : this.imageSrc,
+
       }
 
       this.petService.post(formData).subscribe(() => {
