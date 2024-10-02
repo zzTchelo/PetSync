@@ -1,36 +1,40 @@
 import { Injectable } from '@angular/core';
 import { IPet } from '../models/pet';
-import { HttpClientModule } from '@angular/common/http';
+import { Observable, take } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
 
-  private readonly API = '';
+  private readonly API : string = 'http://localhost:3000/pets';
 
   constructor(
-    private http : HttpClientModule
+    private http : HttpClient
   ) {}
 
-  getAll(){
-    return ;
+  getAll() : Observable<IPet[]>{
+    return this.http.get<IPet[]>(this.API).pipe(take(1));
   }
 
   getByID(petId : string){
-    return ;
+    const url = `${this.API}/${petId}`;
+    return this.http.get<IPet>(url).pipe(take(1));
   }
 
-  post(pet : IPet){
-    return ;
+  post(pet : IPet) : Observable<IPet>{
+    return this.http.post<IPet>(this.API, pet);
   }
 
-  put(pet : IPet){
-    return ;
+  put(pet : IPet) : Observable<IPet>{
+    const url = `${this.API}/${pet.id}`;
+    return this.http.put<IPet>(url, pet);
   }
 
-  delete(id : string){
-    return ;
+  delete(id : string) : Observable<IPet>{
+    const url = `${this.API}/${id}`;
+    return this.http.delete<IPet>(url);
   }
 
 }
