@@ -6,6 +6,7 @@ export interface IPet {
   breed: string;
   animalType: string;
   petDateBirth: Date;
+  petImage : string;
 }
 
 

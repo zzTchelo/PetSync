@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PetService } from '../../../services/pet.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet-register-page',
@@ -19,7 +20,9 @@ export class PetRegisterPageComponent implements OnInit{
   formPet! : FormGroup;
 
   constructor(
-    private formBuilder : FormBuilder
+    private formBuilder : FormBuilder,
+    private petService : PetService,
+    private route : Router
   ){}
 
   ngOnInit(): void {
@@ -42,6 +45,14 @@ export class PetRegisterPageComponent implements OnInit{
   }
 
   sendPet(){
+    if(this.formPet.valid){
+      const formData = {
+        ...this.formPet,
+        petImage : this.imageSrc
+      }
+
+
+    }
 
   }
 
