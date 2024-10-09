@@ -57,3 +57,20 @@ main {
 .login-container button:hover {
   background-color: #C14028;
 }
+
+.separator {
+  margin: 10px auto;
+  width: 60%;
+  height: 1px;
+  background-color: #E0E0E0; /* Cor da linha */
+}
+
+.sign-in-link {
+  color: #ffffff; /* Cor roxa do link */
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sign-in-link:hover {
+  text-decoration: underline;
+}
