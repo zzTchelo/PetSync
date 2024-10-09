@@ -6,11 +6,11 @@
     </div>
     <div class="pet-board">
       <div *ngFor="let pet of allPets" class="pet-card">
-          <div class="pet-information">
-            <img src="../../../assets/icons8-pegada-de-cachorro-100.png" alt="Profile-pic">
-            <label class="pet-name"><span>{{ pet.name }}</span></label>
+          <div class="pet-information" routerLink="/pets/{{ pet.id }}">
+            <img src="{{ pet.petImage }}" alt="Profile-pic">
+            <label class="pet-name"><span>{{ pet.petName }}</span></label>
             <label>
-              <span class="pet-type">{{ pet.breed }}</span>
+              <span class="pet-type">{{ pet.petBreed }}</span>
               <span class="pet-breed">{{ pet.animalType }}</span>
             </label>
           </div>

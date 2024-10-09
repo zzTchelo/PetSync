@@ -4,11 +4,12 @@ import { PetService } from '../../../services/pet.service';
 import { IPet } from '../../../models/pet';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pet-page',
   standalone: true,
-  imports: [DefaultHomePageComponent, NgFor, FormsModule, CommonModule],
+  imports: [DefaultHomePageComponent, NgFor, FormsModule, CommonModule, RouterModule],
   templateUrl: './pet-page.component.html',
   styleUrl: './pet-page.component.css'
 })
@@ -23,7 +24,10 @@ export class PetPageComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-
+    this.petService.getAll().subscribe((pet) => {
+      this.allPets = pet;
+      this.setPets = pet;
+    })
   }
 
   onTextChange(){

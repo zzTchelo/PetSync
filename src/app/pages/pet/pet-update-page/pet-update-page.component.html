@@ -1,0 +1,56 @@
+<app-default-home-page>
+  <main>
+    <form action="" [formGroup]="formPet">
+      <div class="main-form">
+        <div class="left-side">
+          <div class="image-container">
+            <img *ngIf="imageSrc" [src]="imageSrc" alt="Image Preview" class="image-preview" />
+            <div class="upload-icon-wrapper">
+              <input type="file" (change)="onFileSelected($event)" accept="image/*"/>
+              <img src="../../../assets/icons8-editar-96.png" class="upload-icon" alt="Edit Image">
+            </div>
+          </div>
+
+        </div>
+        <div class="right-side">
+          <div>
+            <label for="clientName">Nome:</label>
+            <input type="text" formControlName="petName">
+          </div>
+          <div class="mensagem-erro" *ngIf="formPet.get('petName')?.errors && formPet.get('petName')?.touched">
+            *Campo obrigatório!!!
+          </div>
+
+          <div>
+            <label for="">Raça:</label>
+            <input type="text" formControlName="petBreed">
+          </div>
+          <div class="mensagem-erro" *ngIf="formPet.get('petBreed')?.errors && formPet.get('petBreed')?.touched">
+            *Campo obrigatório!!!
+          </div>
+
+          <div>
+            <label for="">Tipo:</label>
+            <input type="text" formControlName="animalType">
+          </div>
+          <div class="mensagem-erro" *ngIf="formPet.get('animalType')?.errors && formPet.get('animalType')?.touched">
+            *Campo obrigatório!!!
+          </div>
+
+          <div>
+            <label for="">Data de Nascimento</label>
+            <input type="date" formControlName="petDateBirth">
+          </div>
+          <div class="mensagem-erro" *ngIf="formPet.get('petDateBirth')?.errors && formPet.get('petDateBirth')?.touched">
+            *Campo obrigatório!!!
+          </div>
+
+          <div>
+            <button [disabled]="!formPet.valid" [ngClass]="enableButton()" (click)="updatePet()">Atualizar</button>
+            <button  class="delete-button" (click)="deletePet()">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</app-default-home-page>
