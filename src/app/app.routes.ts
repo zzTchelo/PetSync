@@ -7,6 +7,7 @@ import { ClientRegisterPageComponent } from './pages/client/client-register-page
 import { PetRegisterPageComponent } from './pages/pet/pet-register-page/pet-register-page.component';
 import { ScheduleRegisterPageComponent } from './pages/schedule/schedule-register-page/schedule-register-page.component';
 import { ClientUpdateComponent } from './pages/client/client-update-page/client-update-page.component';
+import { PetUpdatePageComponent } from './pages/pet/pet-update-page/pet-update-page.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
 
   {path: 'pets', component: PetPageComponent},
   {path: 'petRegister', component: PetRegisterPageComponent},
+  {path: 'pets/:id', component: PetUpdatePageComponent},
 
   {path: 'schedules', component: SchedulePageComponent},
   {path: 'scheduleRegister', component: ScheduleRegisterPageComponent},

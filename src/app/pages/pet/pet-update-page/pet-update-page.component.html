@@ -46,7 +46,8 @@
           </div>
 
           <div>
-            <button [disabled]="!formPet.valid" [ngClass]="enableButton()" (click)="sendPet()">Cadastrar</button>
+            <button [disabled]="!formPet.valid" [ngClass]="enableButton()" (click)="updatePet()">Atualizar</button>
+            <button  class="delete-button" (click)="deletePet()">Excluir</button>
           </div>
         </div>
       </div>

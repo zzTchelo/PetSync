@@ -124,6 +124,22 @@ input[type="date"] {
   font-size: 16px;
 }
 
+.delete-button{
+  background-color: #af1d1d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.delete-button:hover{
+  background-color: #cf0c0c;
+}
+
 .mensagem-erro {
   font-size: 12px;
   margin-left: 5px;

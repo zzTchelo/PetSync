@@ -44,7 +44,7 @@ export class ClientUpdateComponent implements OnInit{
         clientName: client.clientName,
         clientEmail: client.clientEmail,
         clientCPF: client.clientCPF,
-        clientDateBirth: client.clientDateOfBirth
+        clientDateBirth: client.clientDateBirth
       });
     });
   }

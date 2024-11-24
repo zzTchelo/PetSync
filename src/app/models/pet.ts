@@ -1,13 +1,14 @@
-import { v4 as uuidv4 } from 'uuid';
-
 export interface IPet {
   id: string;
-  name: string;
-  breed: string;
+  petName: string;
+  petBreed: string;
   animalType: string;
-  birth: Date;
+  petDateBirth: string;
+  petImage : string;
 }
 
+
+/*
 export const pets: IPet[] = [
   { id: uuidv4(), name: "Rex", breed: "Labrador", animalType: "Dog", birth: new Date("2021-05-15") },
   { id: uuidv4(), name: "Mia", breed: "Siamese", animalType: "Cat", birth: new Date("2020-11-20") },
@@ -28,3 +29,4 @@ export const pets: IPet[] = [
   { id: uuidv4(), name: "Whiskers", breed: "Abyssinian", animalType: "Cat", birth: new Date("2018-12-25") },
   { id: uuidv4(), name: "Rufus", breed: "Boxer", animalType: "Dog", birth: new Date("2016-09-30") }
 ];
+*/
