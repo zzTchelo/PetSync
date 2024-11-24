@@ -8,12 +8,14 @@ import { PetRegisterPageComponent } from './pages/pet/pet-register-page/pet-regi
 import { ScheduleRegisterPageComponent } from './pages/schedule/schedule-register-page/schedule-register-page.component';
 import { ClientUpdateComponent } from './pages/client/client-update-page/client-update-page.component';
 import { PetUpdatePageComponent } from './pages/pet/pet-update-page/pet-update-page.component';
+import { LoginRegisterPageComponent } from './pages/login/login-register-page/login-register-page.component';
 
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},
 
   {path: 'login', component: LoginComponent},
+  {path: 'loginRegister', component: LoginRegisterPageComponent},
 
   {path: 'clients', component: ClientPageComponent},
   {path: 'clientRegister', component: ClientRegisterPageComponent},
