@@ -1,12 +1,73 @@
 <app-default-home-page>
-  <main>
-    <div *ngFor="let schedule of schedules" class="schedule-card">
-        <div class="schedule-information">
-          <label class="client-name">Cliente: <span>{{ schedule.clientName }}</span></label>
-          <label class="pet-name">Pet: {{ schedule.petName }}</label>
-          <label class="date-description">Data: {{ schedule.dateScheduled | date : 'dd/MM/yyyy'}}</label>
-        </div>
-        <img src="../../../assets/icons8-editar-64.png" alt="Editar">
+  <div class="schedule-container">
+    <div class="list-content">
+      <h1>Agendamentos</h1>
+
+      <!-- Formulário para criar novo agendamento -->
+      <form (ngSubmit)="addSchedule()" class="schedule-form">
+        <input
+          type="text"
+          placeholder="Nome do cliente"
+          [(ngModel)]="newSchedule.clientName"
+          name="clientName"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Nome do pet"
+          [(ngModel)]="newSchedule.petName"
+          name="petName"
+          required
+        />
+        <input
+          type="datetime-local"
+          [(ngModel)]="newSchedule.dateScheduled"
+          name="dateScheduled"
+          required
+        />
+        <button type="submit">Adicionar</button>
+      </form>
+
+      <!-- Lista de agendamentos -->
+      <ul class="schedule-list">
+        <li *ngFor="let schedule of schedules" class="schedule-item">
+          <div class="schedule-info">
+            <p><strong>Cliente:</strong> {{ schedule.clientName }}</p>
+            <p><strong>Pet:</strong> {{ schedule.petName }}</p>
+            <p><strong>Data:</strong> {{ schedule.dateScheduled | date: 'dd/MM/yyyy' }} </p>
+          </div>
+          <div class="schedule-actions">
+            <button (click)="startEdit(schedule)">Editar</button>
+            <button (click)="deleteSchedule(schedule.id)">Excluir</button>
+          </div>
+        </li>
+      </ul>
     </div>
-  </main>
+    <!-- Formulário para editar agendamento -->
+    <div *ngIf="isEditing" class="edit-form">
+      <h2>Editar Agendamento</h2>
+      <form (ngSubmit)="saveEdit()">
+        <input
+          type="text"
+          [(ngModel)]="editSchedule.clientName"
+          name="editClientName"
+          required
+        />
+        <input
+          type="text"
+          [(ngModel)]="editSchedule.petName"
+          name="editPetName"
+          required
+        />
+        <input
+          type="datetime-local"
+          [(ngModel)]="editSchedule.dateScheduled"
+          name="editDateScheduled"
+          required
+        />
+        <button type="submit">Salvar</button>
+        <button type="button" (click)="isEditing = false; editSchedule = null;">Cancelar</button>
+      </form>
+    </div>
+  </div>
 </app-default-home-page>

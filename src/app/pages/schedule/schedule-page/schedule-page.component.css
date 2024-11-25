@@ -1,52 +1,80 @@
-main {
-  width: 80vw;
-  gap: 20px;
-  margin: 20px auto;
-}
+.schedule-container {
+  max-width: 600px;
 
-.schedule-card {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-  padding: 20px 20px 20px 40px;
-  margin: 10px;
-
+  padding: 20px;
+  font-family: Arial, sans-serif;
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 8px;
 }
 
-.schedule-card img {
-  width: 40px;
-  height: 40px;
+.schedule-form{
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.schedule-form input,
+.edit-form input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.schedule-form button,
+.edit-form button {
+  padding: 8px 12px;
+  font-size: 14px;
   cursor: pointer;
 }
 
-.schedule-card img:hover {
-  opacity: 0.7;
+.schedule-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
 }
 
-.schedule-information {
+.schedule-item {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* Centraliza os itens verticalmente */
-  width: 100%;
   justify-content: space-between;
-
-  padding-left: 15px;
-  border-left: 1px solid #ccc;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-
-.schedule-information label {
-  font-size: large;
+.schedule-info p {
+  margin: 0;
+  font-size: 14px;
 }
 
-.schedule-information .client-name{
-  display: block;
-  width: 100%;
+.schedule-actions button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
-.schedule-information .client-name span{
-  font-weight: 600;
+.schedule-actions button:first-child {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.schedule-actions button:last-child {
+  background-color: #dc3545;
+  color: white;
+  border: none;
 }

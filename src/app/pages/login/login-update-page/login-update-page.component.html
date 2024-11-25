@@ -1,0 +1,46 @@
+<app-default-home-page>
+  <div class="container">
+    <form [formGroup]="alterarForm">
+      <h2>Alterar Dados</h2>
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <input
+          id="username"
+          type="text"
+          formControlName="name"
+          placeholder="Digite seu usuário"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Digite seu e-mail"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Digite sua senha"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn-submit"
+        (click)="onAlterar()"
+        [disabled]="!alterarForm.valid"
+      >
+        Salvar Alterações
+      </button>
+      <button (click)="onVoltar()" class="btn-voltar">Voltar</button>
+    </form>
+  </div>
+</app-default-home-page>

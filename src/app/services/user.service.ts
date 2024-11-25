@@ -75,9 +75,11 @@ export class UserService {
         // Buscar o usuário que tenha o nome de usuário e senha correspondentes
         const user = users.find(u => u.name === username && u.password === password);
         if (user) {
-          return user;  // Retorna o usuário encontrado
+          // Salva o usuário na sessionStorage
+          sessionStorage.setItem('currentUser', JSON.stringify(user));
+          return user; // Retorna o usuário encontrado
         } else {
-          throw new Error('Credenciais inválidas');  // Erro caso o usuário não seja encontrado
+          throw new Error('Credenciais inválidas'); // Erro caso o usuário não seja encontrado
         }
       }),
       catchError(error => {
@@ -86,4 +88,13 @@ export class UserService {
       })
     );
   }
+
+  logout(): void {
+    sessionStorage.removeItem('currentUser'); // Remove o usuário ao fazer logout
+  }
+
+  isLoggedIn(): boolean {
+    return sessionStorage.getItem('currentUser') !== null;
+  }
+
 }

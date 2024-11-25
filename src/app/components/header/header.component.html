@@ -1,7 +1,7 @@
 <header>
   <div class="header-container">
     <div class="logo" routerLink="/schedules">
-      <img src="../../../assets/Logo_PetSync.png" alt="Logo">
+      <img routerLink="/loginUpdate" src="../../../assets/Logo_PetSync.png" alt="Logo">
     </div>
     <div class="date-time">
       {{ currentDate | date: 'dd/MM/yyyy' }}
@@ -9,8 +9,7 @@
     <div class="icons">
       <img routerLink="/clientRegister" src="../../../assets/icons8-contrato-de-trabalho-100.png" alt="Clientes">
       <img routerLink="/petRegister" src="../../../assets/icons8-animal-64.png" alt="Pets">
-      <img routerLink="/scheduleRegister" src="../../../assets/icons8-hora-extra-64.png" alt="Agendamentos">
-      <img src="../../../assets/icons8-sair-64.png" alt="Sair">
+      <img (click)="onLogout()" src="../../../assets/icons8-sair-64.png" alt="Sair">
     </div>
   </div>
 </header>
