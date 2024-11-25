@@ -32,7 +32,7 @@ export class PetPageComponent implements OnInit{
 
   onTextChange(){
     this.allPets = this.setPets.filter((pet : IPet) => {
-      return pet.petName.toLowerCase().includes(this.filteredPets);
+      return pet.petName.toLowerCase().includes(this.filteredPets.toLowerCase());
     })
   }
 }

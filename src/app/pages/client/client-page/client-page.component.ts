@@ -35,7 +35,7 @@ export class ClientPageComponent implements OnInit{
 
   onTextChange(){
     this.allClients = this.setClients.filter((client : IClient) => {
-      return client.clientName.toLowerCase().includes(this.filteredClients);
+      return client.clientName.toLowerCase().includes(this.filteredClients.toLowerCase());
     })
   }
 }
