@@ -3,11 +3,10 @@
     <figure>
       <img src="../../../assets/Logo_PetSync.png" alt="Logo_PetSync">
     </figure>
-      <input type="text" placeholder="User...">
-      <input type="password" placeholder="Password...">
-    <button>Login</button>
+    <input type="text" placeholder="User..." [(ngModel)]="username">
+    <input type="password" placeholder="Password..." [(ngModel)]="password">
+    <button (click)="onLogin()">Login</button>
     <div class="separator"></div>
-    <a href="#" class="sign-in-link">sign in</a>
+    <a routerLink="/loginRegister" class="sign-in-link">Sign in</a>
   </div>
-
 </main>

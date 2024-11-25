@@ -5,15 +5,19 @@ import { ClientPageComponent } from './pages/client/client-page/client-page.comp
 import { PetPageComponent } from './pages/pet/pet-page/pet-page.component';
 import { ClientRegisterPageComponent } from './pages/client/client-register-page/client-register-page.component';
 import { PetRegisterPageComponent } from './pages/pet/pet-register-page/pet-register-page.component';
-import { ScheduleRegisterPageComponent } from './pages/schedule/schedule-register-page/schedule-register-page.component';
 import { ClientUpdateComponent } from './pages/client/client-update-page/client-update-page.component';
 import { PetUpdatePageComponent } from './pages/pet/pet-update-page/pet-update-page.component';
+import { LoginRegisterPageComponent } from './pages/login/login-register-page/login-register-page.component';
+import { LoginUpdatePageComponent } from './pages/login/login-update-page/login-update-page.component';
 
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},
 
   {path: 'login', component: LoginComponent},
+  {path: 'loginRegister', component: LoginRegisterPageComponent},
+  {path: 'loginUpdate', component: LoginUpdatePageComponent},
+
 
   {path: 'clients', component: ClientPageComponent},
   {path: 'clientRegister', component: ClientRegisterPageComponent},
@@ -24,7 +28,6 @@ export const routes: Routes = [
   {path: 'pets/:id', component: PetUpdatePageComponent},
 
   {path: 'schedules', component: SchedulePageComponent},
-  {path: 'scheduleRegister', component: ScheduleRegisterPageComponent},
 
   {path: '**', redirectTo: 'schedules', pathMatch:'full'},
 ];
