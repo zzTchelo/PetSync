@@ -5,20 +5,23 @@
 
       <!-- Formulário para criar novo agendamento -->
       <form (ngSubmit)="addSchedule()" class="schedule-form">
-        <input
-          type="text"
-          placeholder="Nome do cliente"
+        <!-- Combobox para selecionar cliente -->
+        <select
           [(ngModel)]="newSchedule.clientName"
           name="clientName"
           required
-        />
-        <input
-          type="text"
-          placeholder="Nome do pet"
-          [(ngModel)]="newSchedule.petName"
-          name="petName"
-          required
-        />
+          (change)="loadPetsForClient(newSchedule.clientName)"
+        >
+          <option value="" disabled selected>Selecione um cliente</option>
+          <option *ngFor="let client of clients" [value]="client.clientName">{{ client.clientName }}</option>
+        </select>
+
+        <!-- Combobox para selecionar pet -->
+        <select [(ngModel)]="newSchedule.petName" name="petName" required>
+          <option value="" disabled selected>Selecione um pet</option>
+          <option *ngFor="let pet of pets" [value]="pet.name">{{ pet.name }}</option>
+        </select>
+
         <input
           type="datetime-local"
           [(ngModel)]="newSchedule.dateScheduled"
@@ -47,18 +50,23 @@
     <div *ngIf="isEditing" class="edit-form">
       <h2>Editar Agendamento</h2>
       <form (ngSubmit)="saveEdit()">
-        <input
-          type="text"
+        <!-- Combobox para selecionar cliente ao editar -->
+        <select
           [(ngModel)]="editSchedule.clientName"
           name="editClientName"
           required
-        />
-        <input
-          type="text"
-          [(ngModel)]="editSchedule.petName"
-          name="editPetName"
-          required
-        />
+          (change)="loadPetsForClient(editSchedule.clientName)"
+        >
+          <option value="" disabled selected>Selecione um cliente</option>
+          <option *ngFor="let client of clients" [value]="client.name">{{ client.name }}</option>
+        </select>
+
+        <!-- Combobox para selecionar pet ao editar -->
+        <select [(ngModel)]="editSchedule.petName" name="editPetName" required>
+          <option value="" disabled selected>Selecione um pet</option>
+          <option *ngFor="let pet of pets" [value]="pet.name">{{ pet.name }}</option>
+        </select>
+
         <input
           type="datetime-local"
           [(ngModel)]="editSchedule.dateScheduled"

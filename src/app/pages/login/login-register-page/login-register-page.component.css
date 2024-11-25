@@ -3,9 +3,8 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
   margin: auto;
+  width: 20vw;
 }
 
 h2 {
@@ -16,6 +15,7 @@ h2 {
 
 .form-group {
   margin-bottom: 15px;
+  width: 100%;
 }
 
 label {
@@ -26,11 +26,11 @@ label {
 }
 
 input {
-  width: 100%;
   padding: 10px;
   border: 1px solid #cccccc;
   border-radius: 4px;
   font-size: 14px;
+  width: 90%;
 }
 
 .btn-submit {
@@ -42,7 +42,6 @@ input {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
 }
 
 .btn-voltar {
@@ -54,7 +53,6 @@ input {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
 }
 
 .btn-submit:disabled {
@@ -64,8 +62,4 @@ input {
 
 .btn-submit:hover:enabled {
   background-color: #45a049;
-}
-
-.full-width {
-  width: 100%;
 }

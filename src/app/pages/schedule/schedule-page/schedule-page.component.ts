@@ -1,3 +1,4 @@
+import { NotifyService } from './../../../services/notify.service';
 import { Component, OnInit } from '@angular/core';
 import { DefaultHomePageComponent } from "../../../components/default-home-page/default-home-page.component";
 import { ISchedule } from '../../../models/schedule';
@@ -16,14 +17,18 @@ registerLocaleData(localePT);
 })
 export class SchedulePageComponent implements OnInit{
 
+  clients: any[] = []; // Lista de clientes
+  pets: any[] = []; // Lista de pets do cliente selecionado
+
   schedules: ISchedule[] = [];
   newSchedule: ISchedule = { clientName: '', petName: '', dateScheduled: '' };
   isEditing: boolean = false;
   editSchedule: any;//ISchedule | null = { clientName: '', petName: '', dateScheduled: '' };
 
-  constructor(private scheduleService: ScheduleService) {}
+  constructor(private scheduleService: ScheduleService, private notify : NotifyService) {}
 
   ngOnInit(): void {
+    this.loadClients();
     this.loadSchedules();
   }
 
@@ -35,6 +40,11 @@ export class SchedulePageComponent implements OnInit{
   }
 
   addSchedule(): void {
+    if(!this.newSchedule.clientName || !this.newSchedule.petName){
+      this.notify.show('Preencha os dados corretamente', 'Fechar', 3000)
+      return ;
+    }
+
     this.scheduleService.post(this.newSchedule).subscribe({
       next: (schedule) => {
         this.schedules.push(schedule);
@@ -68,4 +78,23 @@ export class SchedulePageComponent implements OnInit{
       error: (err) => console.error('Error deleting schedule', err)
     });
   }
+
+  // Carregar lista de clientes
+  loadClients(): void {
+    this.scheduleService.getClients().subscribe({
+      next: (data) => this.clients = data,
+      error: (err) => console.error('Erro ao carregar clientes', err)
+    });
+  }
+
+  // Carregar pets para o cliente selecionado
+  loadPetsForClient(clientName: string | undefined): void {
+    const selectedClient = this.clients.find(client => client.name === clientName);
+    if (selectedClient) {
+      this.pets = selectedClient.pets || []; // Supondo que cada cliente tenha uma lista de pets
+    } else {
+      this.pets = [];
+    }
+  }
+
 }

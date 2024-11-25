@@ -37,6 +37,9 @@
   padding: 8px 12px;
   font-size: 14px;
   cursor: pointer;
+  background-color: #007bff;
+  outline: none;
+  color: aliceblue;
 }
 
 .schedule-list {
@@ -77,4 +80,30 @@
   background-color: #dc3545;
   color: white;
   border: none;
+}
+
+/* Estilos para o combobox */
+select {
+  width: 100%; /* Largura completa */
+  padding: 12px 20px; /* Padding interno */
+  border: 1px solid #ccc; /* Borda leve */
+  border-radius: 4px; /* Bordas arredondadas */
+  font-size: 16px; /* Tamanho da fonte */
+  background-color: #fff; /* Cor de fundo branca */
+  color: #333; /* Cor do texto */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: border-color 0.3s ease; /* Animação suave na borda */
+}
+
+/* Foco no combobox */
+select:focus {
+  border-color: #4CAF50; /* Borda verde ao focar no campo */
+  outline: none; /* Remove o contorno padrão */
+}
+
+/* Estilo para o combobox quando desabilitado */
+select:disabled {
+  background-color: #f1f1f1; /* Cor de fundo quando desabilitado */
+  color: #b3b3b3; /* Cor do texto quando desabilitado */
+  cursor: not-allowed; /* Cursor de "não permitido" quando desabilitado */
 }

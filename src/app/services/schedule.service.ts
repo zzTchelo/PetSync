@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { ISchedule } from '../models/schedule';
 import { catchError, take } from 'rxjs/operators';
 
@@ -86,4 +86,15 @@ export class ScheduleService {
       })
     );
   }
+
+  getClients(): Observable<any[]> {
+    const url = 'http://localhost:3000/clients'; // Endpoint para buscar os clientes
+    return this.http.get<any[]>(url).pipe(
+      catchError(error => {
+        console.error('Erro ao buscar clientes:', error);
+        return throwError(() => new Error('Erro ao buscar clientes'));
+      })
+    );
+  }
+
 }

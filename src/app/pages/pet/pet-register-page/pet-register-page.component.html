@@ -1,52 +1,64 @@
 <app-default-home-page>
   <main>
-    <form action="" [formGroup]="formPet">
+    <form [formGroup]="formPet">
       <div class="main-form">
         <div class="left-side">
           <div class="image-container">
-            <img *ngIf="imageSrc" [src]="imageSrc" alt="Image Preview" class="image-preview" />
+            <img *ngIf="imageSrc" [src]="imageSrc" alt="Pré-visualização da Imagem" class="image-preview" />
             <div class="upload-icon-wrapper">
-              <input type="file" (change)="onFileSelected($event)" accept="image/*"/>
-              <img src="../../../assets/icons8-editar-96.png" class="upload-icon" alt="Edit Image">
+              <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+              <img src="../../../assets/icons8-editar-96.png" class="upload-icon" alt="Editar Imagem">
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side">
+          <div>
+            <label for="petName">Nome:</label>
+            <input type="text" id="petName" formControlName="petName">
+            <div class="mensagem-erro" *ngIf="formPet.get('petName')?.touched && formPet.get('petName')?.hasError('required')">
+              *O nome é obrigatório.
             </div>
           </div>
 
-        </div>
-        <div class="right-side">
           <div>
-            <label for="clientName">Nome:</label>
-            <input type="text" formControlName="petName">
-          </div>
-          <div class="mensagem-erro" *ngIf="formPet.get('petName')?.errors && formPet.get('petName')?.touched">
-            *Campo obrigatório!!!
+            <label for="petBreed">Raça:</label>
+            <input type="text" id="petBreed" formControlName="petBreed">
+            <div class="mensagem-erro" *ngIf="formPet.get('petBreed')?.touched && formPet.get('petBreed')?.hasError('required')">
+              *A raça é obrigatória.
+            </div>
           </div>
 
           <div>
-            <label for="">Raça:</label>
-            <input type="text" formControlName="petBreed">
-          </div>
-          <div class="mensagem-erro" *ngIf="formPet.get('petBreed')?.errors && formPet.get('petBreed')?.touched">
-            *Campo obrigatório!!!
-          </div>
-
-          <div>
-            <label for="">Tipo:</label>
-            <input type="text" formControlName="animalType">
-          </div>
-          <div class="mensagem-erro" *ngIf="formPet.get('animalType')?.errors && formPet.get('animalType')?.touched">
-            *Campo obrigatório!!!
+            <label for="animalType">Tipo:</label>
+            <input type="text" id="animalType" formControlName="animalType">
+            <div class="mensagem-erro" *ngIf="formPet.get('animalType')?.touched && formPet.get('animalType')?.hasError('required')">
+              *O tipo é obrigatório.
+            </div>
           </div>
 
           <div>
-            <label for="">Data de Nascimento</label>
-            <input type="date" formControlName="petDateBirth">
+            <label for="petDateBirth">Data de Nascimento:</label>
+            <input type="date" id="petDateBirth" formControlName="petDateBirth">
+            <div class="mensagem-erro" *ngIf="formPet.get('petDateBirth')?.touched && formPet.get('petDateBirth')?.hasError('required')">
+              *A data de nascimento é obrigatória.
+            </div>
           </div>
-          <div class="mensagem-erro" *ngIf="formPet.get('petDateBirth')?.errors && formPet.get('petDateBirth')?.touched">
-            *Campo obrigatório!!!
+
+          <!-- Combobox para selecionar o cliente -->
+          <div>
+            <label for="clientId">Cliente:</label>
+            <select id="clientId" formControlName="clientId">
+              <option value="" disabled>Selecione um Cliente</option>
+              <option *ngFor="let client of clients" [value]="client.id">{{ client.clientName }}</option>
+            </select>
+            <div class="mensagem-erro" *ngIf="formPet.get('clientId')?.touched && formPet.get('clientId')?.hasError('required')">
+              *O cliente é obrigatório.
+            </div>
           </div>
 
           <div>
-            <button [disabled]="!formPet.valid" [ngClass]="enableButton()" (click)="sendPet()">Cadastrar</button>
+            <button [disabled]="!formPet.valid" (click)="sendPet()">Cadastrar</button>
           </div>
         </div>
       </div>
