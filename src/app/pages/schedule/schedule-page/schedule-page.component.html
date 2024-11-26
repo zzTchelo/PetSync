@@ -8,18 +8,18 @@
         <!-- Combobox para selecionar cliente -->
         <select
           [(ngModel)]="newSchedule.clientName"
-          name="clientName"
+          name="clientId"
           required
-          (change)="loadPetsForClient(newSchedule.clientName)"
+          (change)="loadPetsForClient(newSchedule.clientName!)"
         >
           <option value="" disabled selected>Selecione um cliente</option>
           <option *ngFor="let client of clients" [value]="client.clientName">{{ client.clientName }}</option>
         </select>
 
         <!-- Combobox para selecionar pet -->
-        <select [(ngModel)]="newSchedule.petName" name="petName" required>
+        <select [(ngModel)]="newSchedule.petName" name="petId" required>
           <option value="" disabled selected>Selecione um pet</option>
-          <option *ngFor="let pet of pets" [value]="pet.name">{{ pet.name }}</option>
+          <option *ngFor="let pet of pets" [value]="pet.petName">{{ pet.petName }}</option>
         </select>
 
         <input
@@ -46,6 +46,7 @@
         </li>
       </ul>
     </div>
+
     <!-- Formulário para editar agendamento -->
     <div *ngIf="isEditing" class="edit-form">
       <h2>Editar Agendamento</h2>
@@ -55,16 +56,16 @@
           [(ngModel)]="editSchedule.clientName"
           name="editClientName"
           required
-          (change)="loadPetsForClient(editSchedule.clientName)"
+          (change)="loadPetsForClient(editSchedule.clientName!)"
         >
           <option value="" disabled selected>Selecione um cliente</option>
-          <option *ngFor="let client of clients" [value]="client.name">{{ client.name }}</option>
+          <option *ngFor="let client of clients" [value]="client.clientName">{{ client.clientName }}</option>
         </select>
 
         <!-- Combobox para selecionar pet ao editar -->
         <select [(ngModel)]="editSchedule.petName" name="editPetName" required>
           <option value="" disabled selected>Selecione um pet</option>
-          <option *ngFor="let pet of pets" [value]="pet.name">{{ pet.name }}</option>
+          <option *ngFor="let pet of pets" [value]="pet.petName">{{ pet.petName }}</option>
         </select>
 
         <input
@@ -74,7 +75,7 @@
           required
         />
         <button type="submit">Salvar</button>
-        <button type="button" (click)="isEditing = false; editSchedule = null;">Cancelar</button>
+        <button type="button" (click)="cancelEdit()">Cancelar</button>
       </form>
     </div>
   </div>

@@ -97,4 +97,9 @@ export class ScheduleService {
     );
   }
 
+  getPetsByClient(clientId: string) {
+    return this.http.get<any[]>(`http://localhost:3000/pets?clientId=${clientId}`);
+  }
+
+
 }

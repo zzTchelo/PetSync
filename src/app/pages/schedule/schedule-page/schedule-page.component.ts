@@ -15,7 +15,7 @@ registerLocaleData(localePT);
   templateUrl: './schedule-page.component.html',
   styleUrl: './schedule-page.component.css'
 })
-export class SchedulePageComponent implements OnInit{
+export class SchedulePageComponent implements OnInit {
 
   clients: any[] = []; // Lista de clientes
   pets: any[] = []; // Lista de pets do cliente selecionado
@@ -23,9 +23,9 @@ export class SchedulePageComponent implements OnInit{
   schedules: ISchedule[] = [];
   newSchedule: ISchedule = { clientName: '', petName: '', dateScheduled: '' };
   isEditing: boolean = false;
-  editSchedule: any;//ISchedule | null = { clientName: '', petName: '', dateScheduled: '' };
+  editSchedule: ISchedule = { clientName: '', petName: '', dateScheduled: '' }; // Corrigido para garantir que seja do tipo ISchedule
 
-  constructor(private scheduleService: ScheduleService, private notify : NotifyService) {}
+  constructor(private scheduleService: ScheduleService, private notify: NotifyService) {}
 
   ngOnInit(): void {
     this.loadClients();
@@ -40,23 +40,24 @@ export class SchedulePageComponent implements OnInit{
   }
 
   addSchedule(): void {
-    if(!this.newSchedule.clientName || !this.newSchedule.petName){
-      this.notify.show('Preencha os dados corretamente', 'Fechar', 3000)
-      return ;
+    if (!this.newSchedule.clientName || !this.newSchedule.petName || !this.newSchedule.dateScheduled) {
+      this.notify.show('Preencha os dados corretamente', 'Fechar', 3000);
+      return;
     }
 
+    console.log(this.newSchedule);
     this.scheduleService.post(this.newSchedule).subscribe({
       next: (schedule) => {
         this.schedules.push(schedule);
-        this.newSchedule = { clientName: '', petName: '', dateScheduled: '' };
+        this.newSchedule = { clientName: '', petName: '', dateScheduled: '' }; // Corrigido para os campos corretos
       },
-      error: (err) => console.error('Error adding schedule', err)
+      error: (err) => console.error('Erro ao adicionar agendamento', err)
     });
   }
 
   startEdit(schedule: ISchedule): void {
     this.isEditing = true;
-    this.editSchedule = { ...schedule };
+    this.editSchedule = { ...schedule }; // Atribuindo os dados corretos do agendamento para edição
   }
 
   saveEdit(): void {
@@ -66,10 +67,15 @@ export class SchedulePageComponent implements OnInit{
         const index = this.schedules.findIndex(s => s.id === updatedSchedule.id);
         if (index !== -1) this.schedules[index] = updatedSchedule;
         this.isEditing = false;
-        this.editSchedule = null;
+        this.editSchedule = { clientName: '', petName: '', dateScheduled: '' }; // Resetando após salvar
       },
       error: (err) => console.error('Error updating schedule', err)
     });
+  }
+
+  cancelEdit(): void {
+    this.isEditing = false;
+    this.editSchedule = { clientName: '', petName: '', dateScheduled: '' }; // Resetando ao cancelar
   }
 
   deleteSchedule(id: any): void {
@@ -79,7 +85,6 @@ export class SchedulePageComponent implements OnInit{
     });
   }
 
-  // Carregar lista de clientes
   loadClients(): void {
     this.scheduleService.getClients().subscribe({
       next: (data) => this.clients = data,
@@ -87,14 +92,16 @@ export class SchedulePageComponent implements OnInit{
     });
   }
 
-  // Carregar pets para o cliente selecionado
-  loadPetsForClient(clientName: string | undefined): void {
-    const selectedClient = this.clients.find(client => client.name === clientName);
-    if (selectedClient) {
-      this.pets = selectedClient.pets || []; // Supondo que cada cliente tenha uma lista de pets
-    } else {
-      this.pets = [];
-    }
+  loadPetsForClient(clientId: string): void {
+    this.scheduleService.getPetsByClient(clientId).subscribe({
+      next: (data) => {
+        console.log('Pets carregados:', data);
+        this.pets = data; // Atualizando pets conforme o cliente selecionado
+      },
+      error: (err) => {
+        console.error('Erro ao carregar pets', err);
+        this.pets = []; // Definindo lista vazia caso ocorra um erro
+      },
+    });
   }
-
 }
